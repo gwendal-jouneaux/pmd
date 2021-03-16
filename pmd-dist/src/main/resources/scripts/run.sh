@@ -96,7 +96,7 @@ determine_java_version() {
         # replace versions such as 10 with 10.0.0
         s/version "\([0-9]\{1,\}\)"/version "\1.0.0"/
         # extract the major and minor parts of the version
-        s/^.* version "\(.*\)\.\(.*\)\..*".*$/\1\2/p
+        s/^.* version "\([0-9]\{1,\}\)\.\([0-9]\{1,\}\)\..*".*$/\1\2/p
     }')
     # java_vendor is either java (oracle) or openjdk
     readonly java_vendor=$(echo $full_ver | sed -n -e 's/^\(.*\) version .*$/\1/p')
